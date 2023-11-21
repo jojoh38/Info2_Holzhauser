@@ -28,5 +28,12 @@
 /*--- main -----------------------------------------------------------*/
 int main(void) 
 {
-   // TODO
-}
+   int x = 0, y = 0;
+   printf("Test verschiedener Funktionen der Bibliothek\nGewuenschte Matrizen-Groesse eingeben\nZeilen, Spalten(>0; z.B. : 3,4)");
+   while(scanf("%d,%d ", x,y) != 2 || x <= 0 || y <= 0) 
+   {
+      printf("\nFalsche EIngabe!");
+      while(getchar() != '\n')
+         getchar();
+   }
+   }

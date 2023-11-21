@@ -28,11 +28,15 @@
 * Erstellt eine neue Matrix (cM)
 *  - reserviert lediglich den notwendigen Speicher
 *  - dynamische Verwaltung von Speicher muss mit malloc() und free() 
-*    durchgeführt werden; dynamische Arrays sind nicht erlaubt !!!
+*    durchgefï¿½hrt werden; dynamische Arrays sind nicht erlaubt !!!
 \*--------------------------------------------------------------------*/
 Matrix createMatrix(unsigned int spalten, unsigned int zeilen) 
 {
-   // TODO
+   Matrix M;
+   M.spalten = spalten;
+   M.zeilen = zeilen;
+   M.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
+   return M;
 }
 
 /*--------------------------------------------------------------------*\
