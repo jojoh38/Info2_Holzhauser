@@ -88,5 +88,19 @@ void add_name(char *name, int namenzahl, struct listen *zeiger)
 }
 static int vergleichen(const void* name1, const void* name2)
 {
-    return stricmp(*(char**)name1,*(char**)name2);
+    int vergleich = 0;
+    char *zwischenpuffer;
+    vergleich = stricmp(*(char**)name1,*(char**)name2);
+    if(vergleich > 0)
+    {
+        zwischenpuffer = (char*)malloc(strlen(name1)*sizeof(char));
+        zwischenpuffer = *(char**)name1;
+        *(char**)name1 = (char*)realloc(*(char**)name1,strlen(*(char**)name2)*sizeof(char));
+        *(char**)name2 = (char*)realloc(*(char**)name2,strlen(zwischenpuffer)*sizeof(char));
+        free(zwischenpuffer);
+        return 1;
+    }
+    else
+        return -1;
+    return 0;
 }
