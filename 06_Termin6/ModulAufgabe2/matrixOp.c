@@ -201,7 +201,25 @@ Matrix addMatrix(const Matrix ma, const Matrix mb)
 \*--------------------------------------------------------------------*/
 Matrix subMatrix(const Matrix ma, const Matrix mb)
 {
-   // TODO
+   Matrix sM;
+   if (ma.spalten != mb.spalten || ma.zeilen != mb.zeilen)
+   {
+      sM.spalten = 0;
+      sM.zeilen = 0;
+      sM.mElement = (MatTyp *)malloc((NULL));
+      return sM;
+   }
+   else if(ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
+   {
+      sM.mElement = (MatTyp *)malloc((ma.spalten * ma.zeilen) * sizeof(MatTyp));
+      sM.spalten = ma.spalten;
+      sM.zeilen = ma.zeilen;
+      for ( int i = 0; i < ma.spalten * ma.zeilen; i++)
+      {
+         sM.mElement[i] = ma.mElement[i] - mb.mElement[i];
+      }
+      return sM;
+   }
 }
 
 /*--------------------------------------------------------------------*\
