@@ -37,9 +37,9 @@ int main ()
         while ((scanf("%d",&auswahl) != 1) || auswahl <= 0 || auswahl > 2)
         {
             printf("\nFalsche Eingabe!");
-            while (getchar() != '\n') getchar();
+            fflush(stdin);
         }
-        while (getchar() != '\n') getchar();
+        fflush(stdin);
         if (auswahl == 1)
         {
             zeiger = &l1;
@@ -89,7 +89,7 @@ void add_name(char *name, int namenzahl, struct listen *zeiger)
 static int vergleichen(const void* name1, const void* name2)
 {
     int vergleich = 0;
-    vergleich = stricmp(*(char**)name1,*(char**)name2);
+    vergleich = strcmp(*(char**)name1,*(char**)name2);
     if(vergleich > 0)
     {
         if (strlen(*(char**)name1) > strlen(*(char**)name2))
