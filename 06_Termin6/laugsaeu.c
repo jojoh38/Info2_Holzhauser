@@ -1,5 +1,5 @@
 /*****************************************************************
- * Aufgabe 28_6_1 Mischtabelle aus der Chemi          20.11.2023 *
+ * Aufgabe 28_6_1 Mischtabelle aus der Chemie          20.11.2023*
  * Johannes Holzhauser und Maximilian Schmidt                    *
  *****************************************************************/
  
@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
  
-enum saeuren
+enum saeuren //Aufruf der Struct mit enum, um Code lesbarer zu machen und Fehler zu vermeiden
 {
     Salzsaeure,
     Schwefelsaeure,
@@ -25,7 +25,7 @@ enum laugen
 
 int main()
 {
-typedef const char angegeben;
+typedef const char angegeben; //Umbenennung mit Typedef, um Code lesbarer zu machen
 angegeben *saeuren[anzahl_saeuren] = {"Salzsaere", "Schwefelsaeure", "Salpetersaeure", "Kohlensaeure"};
 angegeben *laugen[anzahl_laugen] = {"Natronlauge", "Kalilauge", "Kalkwasser"};
 angegeben *gemischt[][anzahl_saeuren] = {{"Natriumchlorid", "Natriumsulfat", "Natriumnitrat", "Natriumcarbonat"},{"Kaliumclorid", "Kaliumsulfat", "Kaliumnitrat", "Kaliumcarbonat"}, {"Calciumchlorid","Calciumsulfat", "Calciumnitrat", "Calciumcarbonat"}};
