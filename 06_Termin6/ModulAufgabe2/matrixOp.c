@@ -182,10 +182,14 @@ Matrix addMatrix(const Matrix ma, const Matrix mb)
    }
    else if(ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
    {
+      aM.mElement = (MatTyp *)malloc((ma.spalten * ma.zeilen) * sizeof(MatTyp));
+      aM.spalten = ma.spalten;
+      aM.zeilen = ma.zeilen;
       for ( int i = 0; i < ma.spalten * ma.zeilen; i++)
       {
-         aM.mElement
+         aM.mElement[i] = ma.mElement[i] + mb.mElement[i];
       }
+      return aM;
    }
 }
 
