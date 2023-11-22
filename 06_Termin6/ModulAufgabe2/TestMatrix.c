@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "matrixOp.h"
+//#include <windows.h>
 
 /*--- #defines -------------------------------------------------------*/
 
@@ -44,6 +45,7 @@ int main(void)
    deleteMatrix(test);
    test = createMatrixRand(x,y);
    printMatrix(test);
+   //Sleep(2000);
    test2 = createMatrixRand(x,y);
    printMatrix(test2);
    ergebnis = createMatrix(x,y);
