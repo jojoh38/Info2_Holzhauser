@@ -32,11 +32,11 @@
 \*--------------------------------------------------------------------*/
 Matrix createMatrix(unsigned int spalten, unsigned int zeilen) 
 {
-   Matrix M;
-   M.spalten = spalten;
-   M.zeilen = zeilen;
-   M.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
-   return M;
+   Matrix cM;
+   cM.spalten = spalten;
+   cM.zeilen = zeilen;
+   cM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
+   return cM;
 }
 
 /*--------------------------------------------------------------------*\
@@ -46,7 +46,14 @@ Matrix createMatrix(unsigned int spalten, unsigned int zeilen)
 \*--------------------------------------------------------------------*/
 Matrix createMatrixZero(unsigned int spalten, unsigned int zeilen) 
 {
-   // TODO
+   Matrix zM;
+   int i;
+   zM.spalten = spalten;
+   zM.zeilen = zeilen;
+   zM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
+   for (i = 0; i < spalten * zeilen; i++)
+      zM.mElement[i] = 0;
+   return zM;
 }
 
 /*--------------------------------------------------------------------*\
@@ -56,7 +63,18 @@ Matrix createMatrixZero(unsigned int spalten, unsigned int zeilen)
 \*--------------------------------------------------------------------*/
 Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen) 
 {
-   // TODO
+    Matrix rM;
+    Matrix rM2;
+   int i, z, s;
+   rM.spalten = spalten;
+   rM.zeilen = zeilen;
+   rM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
+    for (z=0, i=0; z < zeilen; z++) {
+      for (s=0; s < spalten; s++, i++) {
+         rM2.mElement[z*spalten + s] = rM.mElement[i];
+      }
+   }
+   return rM2;
 }
 
 /*--------------------------------------------------------------------*\
@@ -64,7 +82,18 @@ Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen)
 \*--------------------------------------------------------------------*/
 Matrix copyMatrix(const Matrix toCopy) 
 {
-   // TODO
+    Matrix yM;
+    Matrix yMCopy;
+   int i, z, s;
+   rM.spalten = spalten;
+   rM.zeilen = zeilen;
+   rM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
+    for (z=0, i=0; z < zeilen; z++) {
+      for (s=0; s < spalten; s++, i++) {
+         rM2.mElement[z*spalten + s] = rM.mElement[i];
+      }
+   }
+   return rM2;
 }
 
 /*--------------------------------------------------------------------*\
