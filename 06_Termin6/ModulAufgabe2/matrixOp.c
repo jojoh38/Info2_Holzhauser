@@ -146,7 +146,22 @@ Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 \*--------------------------------------------------------------------*/
 void printMatrix(const Matrix ma)
 {
-   // TODO
+   Matrix pM;
+   Matrix ma;
+   int spalten;
+   int zeilen;
+   int z, s;
+   spalten = ma.spalten;
+   zeilen = ma.zeilen;
+   pM = ma;
+   printf("\n matrix =\n");
+   for (z=0; z < zeilen; z++) {
+      printf("(");
+      for (s=0; s < spalten; s++) {
+         printf("%6.4d ", pM.mElement[z][s]);
+      }
+      printf(")\n");
+   }
 }
 
 /*--------------------------------------------------------------------*\
