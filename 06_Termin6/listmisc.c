@@ -82,22 +82,20 @@ int main ()
 }
 void add_name(char *name, int namenzahl, struct listen *zeiger)
 {
-    zeiger->liste[namenzahl] =(char*)malloc(strlen(name) + 1);
+    zeiger->liste[namenzahl] =(char*)malloc(strlen(name));
     strcpy(zeiger->liste[namenzahl],name);
     zeiger->anzahl++;
 }
 static int vergleichen(const void* name1, const void* name2)
 {
     int vergleich = 0;
-    char *zwischenpuffer;
     vergleich = stricmp(*(char**)name1,*(char**)name2);
     if(vergleich > 0)
     {
-        zwischenpuffer = (char*)malloc(strlen(name1)*sizeof(char));
-        zwischenpuffer = *(char**)name1;
-        *(char**)name1 = (char*)realloc(*(char**)name1,strlen(*(char**)name2)*sizeof(char));
-        *(char**)name2 = (char*)realloc(*(char**)name2,strlen(zwischenpuffer)*sizeof(char));
-        free(zwischenpuffer);
+        if (strlen(*(char**)name1) > strlen(*(char**)name2))
+            *(char**)name2 = realloc(*(char**)name2,strlen(*(char**)name1) * sizeof(char));
+        else if(strlen(*(char**)name2) > strlen(*(char**)name1))
+            *(char**)name1 = realloc(*(char**)name1,strlen(*(char**)name2) * sizeof(char));
         return 1;
     }
     else
