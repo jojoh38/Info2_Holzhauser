@@ -157,7 +157,21 @@ void printMatrix(const Matrix ma)
 \*--------------------------------------------------------------------*/
 Matrix addMatrix(const Matrix ma, const Matrix mb)
 {
-   // TODO
+   Matrix aM;
+   if (ma.spalten != mb.spalten || ma.zeilen != mb.zeilen)
+   {
+      aM.spalten = 0;
+      aM.zeilen = 0;
+      aM.mElement = (MatTyp *)malloc((NULL));
+      return aM;
+   }
+   else if(ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
+   {
+      for ( int i = 0; i < ma.spalten * ma.zeilen; i++)
+      {
+         aM.mElement
+      }
+   }
 }
 
 /*--------------------------------------------------------------------*\
