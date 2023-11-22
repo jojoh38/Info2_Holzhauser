@@ -37,9 +37,9 @@ int main ()
         while ((scanf("%d",&auswahl) != 1) || auswahl <= 0 || auswahl > 2)
         {
             printf("\nFalsche Eingabe!");
-            fflush(stdin);
+            while (getchar() != '\n') getchar();
         }
-        fflush(stdin);
+        while (getchar() != '\n') getchar();
         if (auswahl == 1)
         {
             zeiger = &l1;

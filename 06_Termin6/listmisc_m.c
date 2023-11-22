@@ -37,7 +37,7 @@ int main ()
         while ((scanf("%d",&auswahl) != 1) || auswahl <= 0 || auswahl > 2)
         {
             printf("\nFalsche Eingabe!");
-            while (getchar != '\n');
+            while (getchar() != '\n') getchar();
         }
         fflush(stdin);
         if (auswahl == 1)
