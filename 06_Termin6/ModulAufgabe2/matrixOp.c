@@ -186,8 +186,8 @@ Matrix addMatrix(const Matrix ma, const Matrix mb)
       {
          aM.mElement[i] = ma.mElement[i] + mb.mElement[i];
       }
-      return aM;
    }
+   return aM;
 }
 
 /*--------------------------------------------------------------------*\
@@ -215,8 +215,8 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
       {
          sM.mElement[i] = ma.mElement[i] - mb.mElement[i];
       }
-      return sM;
    }
+   return sM;
 }
 
 // /*--------------------------------------------------------------------*\
