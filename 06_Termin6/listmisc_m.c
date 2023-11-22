@@ -37,7 +37,7 @@ int main ()
         while ((scanf("%d",&auswahl) != 1) || auswahl <= 0 || auswahl > 2)
         {
             printf("\nFalsche Eingabe!");
-            fflush(stdin);
+            while (getchar != '\n');
         }
         fflush(stdin);
         if (auswahl == 1)
@@ -90,7 +90,7 @@ static int vergleichen(const void* name1, const void* name2)
 {
     int vergleich = 0;
     char *zwischenpuffer;
-    vergleich = stricmp(*(char**)name1,*(char**)name2);
+    vergleich = strcmp(*(char**)name1,*(char**)name2);
     if(vergleich > 0)
     {
         zwischenpuffer = (char*)malloc(strlen(name1)*sizeof(char));
