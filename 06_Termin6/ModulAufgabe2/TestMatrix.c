@@ -36,4 +36,5 @@ int main(void)
       while(getchar() != '\n')
          getchar();
    }
+   
    }
