@@ -123,27 +123,27 @@ void destroyMatrix(Matrix *pToDestroy)
    free(pToDestroy->mElement);
 }
 
-/*--------------------------------------------------------------------*\
-* Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
-* Rueckgabe im Fehlerfall: ERROR
-\*--------------------------------------------------------------------*/
-MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
-{
-   // TODO
-}
+// /*--------------------------------------------------------------------*\
+// * Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
+// * Rueckgabe im Fehlerfall: ERROR
+// \*--------------------------------------------------------------------*/
+// MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
-* Rueckgabe: TRUE, im Fehlerfall: FALSE
-\*--------------------------------------------------------------------*/
-Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
-{
-   // TODO
-}
+// /*--------------------------------------------------------------------*\
+// * Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
+// * Rueckgabe: TRUE, im Fehlerfall: FALSE
+// \*--------------------------------------------------------------------*/
+// Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
-\*--------------------------------------------------------------------*/
+// /*--------------------------------------------------------------------*\
+// * Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
+// \*--------------------------------------------------------------------*/
 void printMatrix(const Matrix ma)
 {
    Matrix pM;
