@@ -3,7 +3,7 @@
 * Bietet Funktionen fuer Operationen mit Matrizen
 *
 * Datum:       Autor:        Grund der Aenderung:
-* 
+*
 *
 \**********************************************************************/
 
@@ -24,13 +24,13 @@
 
 /*--- Funktionsdefinitionen ------------------------------------------*/
 
-/*--------------------------------------------------------------------*\ 
+/*--------------------------------------------------------------------*\
 * Erstellt eine neue Matrix (cM)
 *  - reserviert lediglich den notwendigen Speicher
-*  - dynamische Verwaltung von Speicher muss mit malloc() und free() 
+*  - dynamische Verwaltung von Speicher muss mit malloc() und free()
 *    durchgef�hrt werden; dynamische Arrays sind nicht erlaubt !!!
 \*--------------------------------------------------------------------*/
-Matrix createMatrix(unsigned int spalten, unsigned int zeilen) 
+Matrix createMatrix(unsigned int spalten, unsigned int zeilen)
 {
    Matrix cM;
    cM.spalten = spalten;
@@ -44,7 +44,7 @@ Matrix createMatrix(unsigned int spalten, unsigned int zeilen)
 * - reserviert den notwendigen Speicher
 * - befuellt die Matrix mit 0
 \*--------------------------------------------------------------------*/
-Matrix createMatrixZero(unsigned int spalten, unsigned int zeilen) 
+Matrix createMatrixZero(unsigned int spalten, unsigned int zeilen)
 {
    Matrix zM;
    int i;
@@ -61,39 +61,44 @@ Matrix createMatrixZero(unsigned int spalten, unsigned int zeilen)
 * - reserviert den notwendigen Speicher
 * - befuellt die Matrix mit Zufallszahlen
 \*--------------------------------------------------------------------*/
-Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen) 
+Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen)
 {
-    Matrix rM;
-    Matrix rM2;
+   Matrix rM;
    int i, z, s;
+   float zufall;
+   srand(time(NULL));
    rM.spalten = spalten;
    rM.zeilen = zeilen;
    rM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
-    for (z=0, i=0; z < zeilen; z++) {
-      for (s=0; s < spalten; s++, i++) {
-         rM2.mElement[z*spalten + s] = rM.mElement[i];
+   for (z = 0, i = 0; z < zeilen; z++)
+   {
+      for (s = 0; s < spalten; s++, i++)
+      {
+         zufall = ((rand() / 400) + 1);
+         rM.mElement[z * spalten + s] = zufall;
       }
    }
-   return rM2;
+   return rM;
 }
 
 /*--------------------------------------------------------------------*\
 * Kopiert eine Matrix und gibt die Kopie zurueck (yM)
 \*--------------------------------------------------------------------*/
-Matrix copyMatrix(const Matrix toCopy) 
+Matrix copyMatrix(const Matrix toCopy)
 {
-    Matrix yM;
-    Matrix yMCopy;
+   Matrix yM;
    int i, z, s;
-   rM.spalten = spalten;
-   rM.zeilen = zeilen;
-   rM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
-    for (z=0, i=0; z < zeilen; z++) {
-      for (s=0; s < spalten; s++, i++) {
-         rM2.mElement[z*spalten + s] = rM.mElement[i];
+   yM.spalten = toCopy.spalten;
+   yM.zeilen = toCopy.zeilen;
+   yM.mElement = (MatTyp *)malloc((yM.spalten * yM.zeilen) * sizeof(MatTyp));
+   for (z = 0, i = 0; z < yM.zeilen; z++)
+   {
+      for (s = 0; s < yM.spalten; s++, i++)
+      {
+         yM.mElement[z * yM.spalten + s] = toCopy.mElement[z * yM.spalten + s];
       }
    }
-   return rM2;
+   return yM;
 }
 
 /*--------------------------------------------------------------------*\
@@ -101,26 +106,28 @@ Matrix copyMatrix(const Matrix toCopy)
 * - gibt reservierten Speicher wieder frei !
 * - in der urspruenglichen, uebergebenen Matrix bleiben die Werte erhalten!
 \*--------------------------------------------------------------------*/
-void deleteMatrix(Matrix toDelete) 
+void deleteMatrix(Matrix toDelete)
 {
-   // TODO
+   free(toDelete.mElement);
 }
 
 /*--------------------------------------------------------------------*\
 * "Loescht / Zerstoert" eine uebergegebene Matrix (ddM)
 * - gibt Speicher wieder frei, setzt alle Werte auf NULL bzw. "0" !
-* - Beachte Unterschiede zur vorigen Funktion !!! 
+* - Beachte Unterschiede zur vorigen Funktion !!!
 \*--------------------------------------------------------------------*/
-void destroyMatrix(Matrix *pToDestroy) 
+void destroyMatrix(Matrix *pToDestroy)
 {
-   // TODO
+   free(pToDestroy->mElement);
+   *pToDestroy = createMatrixZero(pToDestroy->spalten,pToDestroy->zeilen);
+   free(pToDestroy->mElement);
 }
 
 /*--------------------------------------------------------------------*\
 * Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
 * Rueckgabe im Fehlerfall: ERROR
 \*--------------------------------------------------------------------*/
-MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos) 
+MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
 {
    // TODO
 }
@@ -129,7 +136,7 @@ MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
 * Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
 * Rueckgabe: TRUE, im Fehlerfall: FALSE
 \*--------------------------------------------------------------------*/
-Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value) 
+Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 {
    // TODO
 }
@@ -137,7 +144,7 @@ Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 /*--------------------------------------------------------------------*\
 * Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
 \*--------------------------------------------------------------------*/
-void printMatrix(const Matrix ma) 
+void printMatrix(const Matrix ma)
 {
    // TODO
 }
@@ -148,7 +155,7 @@ void printMatrix(const Matrix ma)
 * - Ergebnis der Addition in neu erzeugter Matrix
 * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
 \*--------------------------------------------------------------------*/
-Matrix addMatrix(const Matrix ma, const Matrix mb) 
+Matrix addMatrix(const Matrix ma, const Matrix mb)
 {
    // TODO
 }
@@ -159,7 +166,7 @@ Matrix addMatrix(const Matrix ma, const Matrix mb)
 * - Ergebnis der Subtraktion in neu erzeugter Matrix
 * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
 \*--------------------------------------------------------------------*/
-Matrix subMatrix(const Matrix ma, const Matrix mb) 
+Matrix subMatrix(const Matrix ma, const Matrix mb)
 {
    // TODO
 }
@@ -170,7 +177,7 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
 * - Ergebnis der Multiplikation in neu erzeugter Matrix
 * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
 \*--------------------------------------------------------------------*/
-Matrix multMatrix(const Matrix ma, const Matrix mb) 
+Matrix multMatrix(const Matrix ma, const Matrix mb)
 {
    // TODO
 }
@@ -179,7 +186,7 @@ Matrix multMatrix(const Matrix ma, const Matrix mb)
 * Transponiert eine Matrix (tM)
 * Rueckgabe: "ma^T"
 \*--------------------------------------------------------------------*/
-Matrix transposeMatrix(const Matrix ma) 
+Matrix transposeMatrix(const Matrix ma)
 {
    // TODO
 }
@@ -191,8 +198,7 @@ Matrix transposeMatrix(const Matrix ma)
 * fuer kleine Matrizen reicht ein einfacher Algorithmus
 * wer moechte kann auch ein effizientes Verfahren implementieren
 \*--------------------------------------------------------------------*/
-double determMatrix(const Matrix ma) 
+double determMatrix(const Matrix ma)
 {
    // TODO
 }
-
