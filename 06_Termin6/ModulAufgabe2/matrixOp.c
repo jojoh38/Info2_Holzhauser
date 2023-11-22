@@ -149,7 +149,7 @@ void printMatrix(const Matrix ma)
    Matrix pM;
    int z, s, i;
    pM = copyMatrix(ma);
-   printf("\n matrix =\n");
+   printf("matrix =\n");
 
    for (z = 0, i = 0; z < pM.zeilen; z++)
    {
@@ -158,7 +158,7 @@ void printMatrix(const Matrix ma)
       {
          printf("%6.4f ", pM.mElement[z * pM.spalten + s]);
       }
-      printf(")");
+      printf(")\n");
    }
 }
 /*--------------------------------------------------------------------*\
