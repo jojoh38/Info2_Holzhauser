@@ -119,7 +119,7 @@ void deleteMatrix(Matrix toDelete)
 void destroyMatrix(Matrix *pToDestroy)
 {
    free(pToDestroy->mElement);
-   *pToDestroy = createMatrixZero(pToDestroy->spalten,pToDestroy->zeilen);
+   *pToDestroy = createMatrixZero(pToDestroy->spalten, pToDestroy->zeilen);
    free(pToDestroy->mElement);
 }
 
@@ -147,23 +147,19 @@ Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 void printMatrix(const Matrix ma)
 {
    Matrix pM;
-   int spalten;
-   int zeilen;
    int z, s, i;
-   spalten = ma.spalten;
-   zeilen = ma.zeilen;
    pM = copyMatrix(ma);
    printf("\n matrix =\n");
-   
+
    for (z = 0, i = 0; z < pM.zeilen; z++)
-      {
+   {
       printf("(");
       for (s = 0; s < pM.spalten; s++, i++)
-         {
-            printf("%6.4d ", pM.mElement[z * pM.spalten + s]);
-         }
-      printf(")");
+      {
+         printf("%6.4f ", pM.mElement[z * pM.spalten + s]);
       }
+      printf(")");
+   }
 }
 /*--------------------------------------------------------------------*\
 * Addiert zwei Matrizen (aM)
@@ -178,15 +174,15 @@ Matrix addMatrix(const Matrix ma, const Matrix mb)
    {
       aM.spalten = 0;
       aM.zeilen = 0;
-      aM.mElement = (MatTyp *)malloc((NULL));
+      //aM.mElement = (MatTyp *)malloc((NULL));
       return aM;
    }
-   else if(ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
+   else if (ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
    {
       aM.mElement = (MatTyp *)malloc((ma.spalten * ma.zeilen) * sizeof(MatTyp));
       aM.spalten = ma.spalten;
       aM.zeilen = ma.zeilen;
-      for ( int i = 0; i < ma.spalten * ma.zeilen; i++)
+      for (int i = 0; i < ma.spalten * ma.zeilen; i++)
       {
          aM.mElement[i] = ma.mElement[i] + mb.mElement[i];
       }
@@ -207,15 +203,15 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
    {
       sM.spalten = 0;
       sM.zeilen = 0;
-      sM.mElement = (MatTyp *)malloc((NULL));
+      //sM.mElement = (MatTyp *)malloc((NULL));
       return sM;
    }
-   else if(ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
+   else if (ma.spalten == mb.spalten || ma.zeilen == mb.zeilen)
    {
       sM.mElement = (MatTyp *)malloc((ma.spalten * ma.zeilen) * sizeof(MatTyp));
       sM.spalten = ma.spalten;
       sM.zeilen = ma.zeilen;
-      for ( int i = 0; i < ma.spalten * ma.zeilen; i++)
+      for (int i = 0; i < ma.spalten * ma.zeilen; i++)
       {
          sM.mElement[i] = ma.mElement[i] - mb.mElement[i];
       }
@@ -223,34 +219,34 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
    }
 }
 
-/*--------------------------------------------------------------------*\
-* Multipliziert zwei Matrizen (mM)
-* Rueckgabe: "ma * mb"
-* - Ergebnis der Multiplikation in neu erzeugter Matrix
-* - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
-\*--------------------------------------------------------------------*/
-Matrix multMatrix(const Matrix ma, const Matrix mb)
-{
-   // TODO
-}
+// /*--------------------------------------------------------------------*\
+// * Multipliziert zwei Matrizen (mM)
+// * Rueckgabe: "ma * mb"
+// * - Ergebnis der Multiplikation in neu erzeugter Matrix
+// * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
+// \*--------------------------------------------------------------------*/
+// Matrix multMatrix(const Matrix ma, const Matrix mb)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Transponiert eine Matrix (tM)
-* Rueckgabe: "ma^T"
-\*--------------------------------------------------------------------*/
-Matrix transposeMatrix(const Matrix ma)
-{
-   // TODO
-}
+// /*--------------------------------------------------------------------*\
+// * Transponiert eine Matrix (tM)
+// * Rueckgabe: "ma^T"
+// \*--------------------------------------------------------------------*/
+// Matrix transposeMatrix(const Matrix ma)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Gibt die Determinante der Matrix ma zurueck (dt)
-* Rueckgabe im Fehlerfall: ERROR
-* !!! Optional / Implementation freiwillig !!!
-* fuer kleine Matrizen reicht ein einfacher Algorithmus
-* wer moechte kann auch ein effizientes Verfahren implementieren
-\*--------------------------------------------------------------------*/
-double determMatrix(const Matrix ma)
-{
-   // TODO
-}
+// /*--------------------------------------------------------------------*\
+// * Gibt die Determinante der Matrix ma zurueck (dt)
+// * Rueckgabe im Fehlerfall: ERROR
+// * !!! Optional / Implementation freiwillig !!!
+// * fuer kleine Matrizen reicht ein einfacher Algorithmus
+// * wer moechte kann auch ein effizientes Verfahren implementieren
+// \*--------------------------------------------------------------------*/
+// double determMatrix(const Matrix ma)
+// {
+//    // TODO
+// }

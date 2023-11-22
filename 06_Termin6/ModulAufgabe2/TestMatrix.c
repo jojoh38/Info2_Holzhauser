@@ -29,12 +29,15 @@
 int main(void) 
 {
    int x = 0, y = 0;
+   Matrix test;
    printf("Test verschiedener Funktionen der Bibliothek\nGewuenschte Matrizen-Groesse eingeben\nZeilen, Spalten(>0; z.B. : 3,4)");
-   while(scanf("%d,%d ", x,y) != 2 || x <= 0 || y <= 0) 
+   while(scanf("%d,%d ", &x, &y) != 2 || x <= 0 || y <= 0) 
    {
       printf("\nFalsche EIngabe!");
       while(getchar() != '\n')
          getchar();
    }
-   
-   }
+   test = createMatrixZero(x,y);
+   printMatrix(test);
+   return 0;
+}
