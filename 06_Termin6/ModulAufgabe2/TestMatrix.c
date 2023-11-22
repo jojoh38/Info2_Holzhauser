@@ -30,6 +30,8 @@ int main(void)
 {
    int x = 0, y = 0;
    Matrix test;
+   Matrix test2;
+   Matrix ergebnis;
    printf("Test verschiedener Funktionen der Bibliothek\nGewuenschte Matrizen-Groesse eingeben\nZeilen, Spalten(>0; z.B. : 3,4)");
    while(scanf("%d,%d", &x, &y) != 2 || x <= 0 || y <= 0) 
    {
@@ -39,5 +41,16 @@ int main(void)
    }
    test = createMatrixZero(x,y);
    printMatrix(test);
+   deleteMatrix(test);
+   test = createMatrixRand(x,y);
+   printMatrix(test);
+   test2 = createMatrixRand(x,y);
+   printMatrix(test2);
+   ergebnis = createMatrix(x,y);
+   ergebnis = addMatrix(test,test2);
+   printMatrix(ergebnis);
+   ergebnis = subMatrix(test,test2);
+   printMatrix(ergebnis);
+
    return 0;
 }
