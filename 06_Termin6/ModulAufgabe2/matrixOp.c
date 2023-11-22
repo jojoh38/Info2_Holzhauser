@@ -156,14 +156,15 @@ void printMatrix(const Matrix ma)
    printf("\n matrix =\n");
    
    for (z = 0, i = 0; z < pM.zeilen; z++)
+      {
       printf("(");
       for (s = 0; s < pM.spalten; s++, i++)
-      {
-         printf("%6.4d ", pM.mElement[z * pM.spalten + s]);
+         {
+            printf("%6.4d ", pM.mElement[z * pM.spalten + s]);
+         }
+      printf(")");
       }
-      
 }
-
 /*--------------------------------------------------------------------*\
 * Addiert zwei Matrizen (aM)
 * Rueckgabe:
