@@ -123,10 +123,10 @@ void destroyMatrix(Matrix *pToDestroy)
    free(pToDestroy->mElement);
 }
 
-// /*--------------------------------------------------------------------*\
-// * Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
-// * Rueckgabe im Fehlerfall: ERROR
-// \*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*\
+* Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
+* Rueckgabe im Fehlerfall: ERROR
+\*--------------------------------------------------------------------*/
 MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
 {
    MatTyp gE;
@@ -137,10 +137,10 @@ MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
    return gE;
 }
 
-// /*--------------------------------------------------------------------*\
-// * Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
-// * Rueckgabe: TRUE, im Fehlerfall: FALSE
-// \*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*\
+* Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
+* Rueckgabe: TRUE, im Fehlerfall: FALSE
+\*--------------------------------------------------------------------*/
 Bool setEntryAt(Matrix *ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 {
    Bool sE;
@@ -154,9 +154,9 @@ Bool setEntryAt(Matrix *ma, unsigned int xPos, unsigned int yPos, MatTyp value)
    return sE;
 }
 
-// /*--------------------------------------------------------------------*\
-// * Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
-// \*--------------------------------------------------------------------*/
+/*--------------------------------------------------------------------*\
+* Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
+\*--------------------------------------------------------------------*/
 void printMatrix(const Matrix ma)
 {
    Matrix pM;

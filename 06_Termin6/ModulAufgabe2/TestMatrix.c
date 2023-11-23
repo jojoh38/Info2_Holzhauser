@@ -79,5 +79,8 @@ int main(void)
    ergebnis = multMatrix(test,test2);
    printMatrix(ergebnis);
    printf("\nBis hier hat alles schon Funktoniert 3\n\n");
+   deleteMatrix(ergebnis);
+   ergebnis = transposeMatrix(test); 
+   printMatrix(test);
    return 0;
 }
