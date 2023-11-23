@@ -143,12 +143,12 @@ MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
 // \*--------------------------------------------------------------------*/
 Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 {
-   bool sE;
+   Bool sE;
    if ((xPos > ma.spalten) ||(yPos > ma.zeilen))
-      sE = 0;
+      sE = FALSE;
    else
       sE = ma.mElement [xPos * ma.spalten + yPos];
-      sE = 1;
+      sE = TRUE;
    return sE;
 }
 
