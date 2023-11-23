@@ -53,6 +53,8 @@ int main(void)
    printMatrix(ergebnis);
    ergebnis = subMatrix(test,test2);
    printMatrix(ergebnis);
+   deleteMatrix(test);
+   deleteMatrix(test2);
 
    return 0;
 }
