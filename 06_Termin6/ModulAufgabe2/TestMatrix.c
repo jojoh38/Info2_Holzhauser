@@ -50,9 +50,31 @@ int main(void)
    a = createMatrixZero(x,y);
    printMatrix(a);
    destroyMatrix(&a);
+   printf("\nInfo Called srand:");
    a = createMatrixRand(x,y);
    printMatrix(a);
-
+   deleteMatrix(a);
+   a = createMatrix(x,y);
+   for (int i =0 ; i < a.zeilen*a.spalten; i++) 
+       a.mElement[i] = (float)i + element;
+   printf("\nTests mit den eingegebenen Werten:\nCreateMatrix: a[%d,%d]=",x,y);
+   printMatrix(a);
+   b = copyMatrix(a);
+   printf("\nCreateMatrix: b[%d,%d]=",x,y);
+   printMatrix(b);
+   c = addMatrix(a,b);
+   printf("\nc[%d,%d]= a + b",x,y);
+   c = subMatrix(a,b);
+   printf("\nc[%d,%d]= a - b",x,y);
+   printf("\nc[%d,%d] = b^T\nb[%d,%d]= c =",x, y, x, y);
+   destroyMatrix(&c);
+   c = transposeMatrix(b);
+   printMatrix(c);
+   destroyMatrix(&c);
+   c = multMatrix(a,b);
+   printf("\nc[%d,%d]= a * b =", a.spalten, b.zeilen);
+   det = determMatrix(c);
+   printf("\ndet(c) = %.2f");
    return 0;
 }
 
