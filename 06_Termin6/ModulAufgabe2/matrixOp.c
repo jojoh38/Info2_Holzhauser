@@ -74,7 +74,7 @@ Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen)
    {
       for (s = 0; s < spalten; s++, i++)
       {
-         zufall = ((rand() / 400) + 1);
+         zufall = ((rand() / 4000.0) + 1);
          rM.mElement[z * spalten + s] = zufall;
       }
    }
