@@ -240,13 +240,10 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
 Matrix multMatrix(const Matrix ma, const Matrix mb)
 {
    Matrix mM;
+   mM = createMatrixZero(1,1);
    int z, s;
    if (ma.spalten != mb.zeilen)
-   {
-      mM.spalten = 0;
-      mM.zeilen = 0;
       return mM;
-   }
    else if (ma.spalten == mb.zeilen)
    {
       mM.mElement = (MatTyp*)malloc((ma.zeilen*mb.zeilen)*sizeof(MatTyp));
