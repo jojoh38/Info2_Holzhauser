@@ -141,14 +141,14 @@ MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
 // * Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
 // * Rueckgabe: TRUE, im Fehlerfall: FALSE
 // \*--------------------------------------------------------------------*/
-Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
+Bool setEntryAt(Matrix *ma, unsigned int xPos, unsigned int yPos, MatTyp value)
 {
    Bool sE;
-   if ((xPos > ma.spalten) ||(yPos > ma.zeilen))
+   if ((xPos > ma->spalten) ||(yPos > ma->zeilen))
       sE = FALSE;
    else
       sE = TRUE;
-      ma.mElement [xPos * ma.spalten + yPos] = sE;
+      ma->mElement[xPos * ma->spalten + yPos] = value;
    return sE;
 }
 
