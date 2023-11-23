@@ -127,19 +127,30 @@ void destroyMatrix(Matrix *pToDestroy)
 // * Gibt den Eintrag der Matrix an der Stelle (xPos, yPos) zurueck (gE)
 // * Rueckgabe im Fehlerfall: ERROR
 // \*--------------------------------------------------------------------*/
-// MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
-// {
-//    // TODO
-// }
+MatTyp getEntryAt(const Matrix ma, unsigned int xPos, unsigned int yPos)
+{
+   MatTyp gE;
+   if ((xPos > ma.spalten) ||(yPos > ma.zeilen))
+      return ERROR;
+   else
+      gE = ma.mElement [xPos * ma.spalten + yPos];
+      return gE;
+}
 
 // /*--------------------------------------------------------------------*\
 // * Setzt den Eintrag der Matrix an der Stelle (xPos, yPos) (sE)
 // * Rueckgabe: TRUE, im Fehlerfall: FALSE
 // \*--------------------------------------------------------------------*/
-// Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
-// {
-//    // TODO
-// }
+Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
+{
+   bool sE;
+   if ((xPos > ma.spalten) ||(yPos > ma.zeilen))
+      sE = 0;
+   else
+      sE = ma.mElement [xPos * ma.spalten + yPos];
+      sE = 1;
+   return sE;
+}
 
 // /*--------------------------------------------------------------------*\
 // * Gibt eine Matrix im Kommandofenster "schoen formatiert" aus (pM)
@@ -219,86 +230,34 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
    return sM;
 }
 
-/*--------------------------------------------------------------------*\
-* Multipliziert zwei Matrizen (mM)
-* Rueckgabe: "ma * mb"
-* - Ergebnis der Multiplikation in neu erzeugter Matrix
-* - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
-\*--------------------------------------------------------------------*/
-Matrix multMatrix(const Matrix ma, const Matrix mb)
-{
-   Matrix mM;
-   int z, s;
-   if (ma.spalten != mb.zeilen)
-   {
-      mM.spalten = 0;
-      mM.zeilen = 0;
-      return mM;
-   }
-   else if (ma.spalten == mb.zeilen)
-   {
-      mM.mElement = (MatTyp*)malloc((ma.zeilen*mb.zeilen)*sizeof(MatTyp));
-      mM.zeilen = ma.zeilen;
-      mM.spalten = mb.spalten;
-      for ( z = 0; z < mM.zeilen; z++)
-      {
-         for ( s = 0; s < mM.spalten; s++)
-         {
-            for (int i = 0; i < mM.spalten; i++)
-               mM.mElement[z*mM.spalten+s] += ma.mElement[z*ma.spalten + i]*mb.mElement[i*mb.spalten + s];
-         }
-         
-      }     
-   }
-   return mM;   
-}
+// /*--------------------------------------------------------------------*\
+// * Multipliziert zwei Matrizen (mM)
+// * Rueckgabe: "ma * mb"
+// * - Ergebnis der Multiplikation in neu erzeugter Matrix
+// * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
+// \*--------------------------------------------------------------------*/
+// Matrix multMatrix(const Matrix ma, const Matrix mb)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Transponiert eine Matrix (tM)
-* Rueckgabe: "ma^T"
-\*--------------------------------------------------------------------*/
-Matrix transposeMatrix(const Matrix ma)
-{
-   Matrix tM;
-   int z, s;
-   tM.spalten = ma.zeilen;
-   tM.zeilen = ma.spalten;
-   tM.mElement = (MatTyp*)malloc(sizeof(ma.mElement)*sizeof(MatTyp));
-   for (z = 0; z < tM.zeilen; z++)
-   {
-      for (s = 0; s < tM.spalten; s++)
-         tM.mElement[z*tM.spalten+s] = ma.mElement[s*tM.spalten + z];
-   }
-   return tM;  
-}
+// /*--------------------------------------------------------------------*\
+// * Transponiert eine Matrix (tM)
+// * Rueckgabe: "ma^T"
+// \*--------------------------------------------------------------------*/
+// Matrix transposeMatrix(const Matrix ma)
+// {
+//    // TODO
+// }
 
-/*--------------------------------------------------------------------*\
-* Gibt die Determinante der Matrix ma zurueck (dt)
-* Rueckgabe im Fehlerfall: ERROR
-* !!! Optional / Implementation freiwillig !!!
-* fuer kleine Matrizen reicht ein einfacher Algorithmus
-* wer moechte kann auch ein effizientes Verfahren implementieren
-\*--------------------------------------------------------------------*/
-double determMatrix(const Matrix ma)
-{
-   double dt = 0.0;
-   int z, s;
-   if (ma.spalten != ma.zeilen)
-   {
-      dt = 0.0;
-      return ERROR;
-   }
-   else if (ma.spalten == ma.zeilen)
-   {
-      for (z = 0; z < (ma.zeilen-1); z++)
-      {
-         for (s = 0; s < (ma.spalten-1); s++)
-         {
-            dt += (ma.mElement[z*ma.spalten+s] * ma.mElement[(z+1)*ma.spalten+(s+1)]);
-            dt -= (ma.mElement[z*ma.spalten+(s+1)] * ma.mElement[(z+1)*ma.spalten+s]);
-         }
-         
-      }
-   }
-   return dt;  
-}
+// /*--------------------------------------------------------------------*\
+// * Gibt die Determinante der Matrix ma zurueck (dt)
+// * Rueckgabe im Fehlerfall: ERROR
+// * !!! Optional / Implementation freiwillig !!!
+// * fuer kleine Matrizen reicht ein einfacher Algorithmus
+// * wer moechte kann auch ein effizientes Verfahren implementieren
+// \*--------------------------------------------------------------------*/
+// double determMatrix(const Matrix ma)
+// {
+//    // TODO
+// }
