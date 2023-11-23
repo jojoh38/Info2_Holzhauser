@@ -33,7 +33,7 @@ int main(void)
    double det = 0.0, element = 0.0;
    Matrix a, b, c;
    printf("Test verschiedener Funktionen der Bibliothek\nGewuenschte Matrizen-Groesse eingeben\nZeilen, Spalten(>0; z.B. : 3,4)");
-   while(scanf("%d,%d", &x, &y) != 2 || x <= 0 || y <= 0) 
+   while(scanf("%d,%d", &y, &x) != 2 || x <= 0 || y <= 0) 
    {
       printf("\nFalsche EIngabe!");
       while(getchar() != '\n')
@@ -71,10 +71,12 @@ int main(void)
    printf("\nc[%d,%d] = b^T\nb[%d,%d]= c =",x, y, x, y);
    destroyMatrix(&c);
    c = transposeMatrix(b);
+   deleteMatrix(b);
+   b = copyMatrix(c);
    printMatrix(c);
    destroyMatrix(&c);
    c = multMatrix(a,b);
-   printf("\nc[%d,%d]= a * b =", a.spalten, b.zeilen);
+   printf("\nc[%d,%d]= a * b =", b.spalten, a.zeilen);
    printMatrix(c);
    det = determMatrix(c);
    printf("\ndet(c) = %.2lf",det);

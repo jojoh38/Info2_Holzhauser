@@ -249,11 +249,11 @@ Matrix multMatrix(const Matrix ma, const Matrix mb)
       mM.mElement = (MatTyp*)malloc((ma.zeilen*mb.zeilen)*sizeof(MatTyp));
       mM.zeilen = ma.zeilen;
       mM.spalten = mb.spalten;
-      for ( z = 0; z < mM.zeilen; z++)
+      for ( z = 0; z < mM.zeilen +1; z++)
       {
          for ( s = 0; s < mM.spalten; s++)
          {
-            for (int i = 0; i < mM.spalten; i++)
+            for (int i = 0; i <= mM.spalten; i++)
                mM.mElement[z*mM.spalten+s] += ma.mElement[z*ma.spalten + i]*mb.mElement[i*mb.spalten + s];
          }
          
