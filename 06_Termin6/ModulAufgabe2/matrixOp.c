@@ -219,16 +219,40 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
    return sM;
 }
 
-// /*--------------------------------------------------------------------*\
-// * Multipliziert zwei Matrizen (mM)
-// * Rueckgabe: "ma * mb"
-// * - Ergebnis der Multiplikation in neu erzeugter Matrix
-// * - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
-// \*--------------------------------------------------------------------*/
-// Matrix multMatrix(const Matrix ma, const Matrix mb)
-// {
-//    // TODO
-// }
+/*--------------------------------------------------------------------*\
+* Multipliziert zwei Matrizen (mM)
+* Rueckgabe: "ma * mb"
+* - Ergebnis der Multiplikation in neu erzeugter Matrix
+* - Rueckgabe im Fehlerfall: Matrix der Groesse "0"
+\*--------------------------------------------------------------------*/
+Matrix multMatrix(const Matrix ma, const Matrix mb)
+{
+   Matrix mM;
+   int z, s;
+   if (ma.spalten != mb.zeilen)
+   {
+      mM.spalten = 0;
+      mM.zeilen = 0;
+      return mM;
+   }
+   else if (ma.spalten == mb.zeilen)
+   {
+      mM.mElement = (MatTyp*)malloc((ma.zeilen*mb.zeilen)*sizeof(MatTyp));
+      mM.zeilen = ma.zeilen;
+      mM.spalten = mb.spalten;
+      for ( z = 0; z < mM.zeilen; z++)
+      {
+         for ( s = 0; s < mM.spalten; s++)
+         {
+            for (int i = 0; i < mM.spalten; i++)
+               mM.mElement[z*mM.spalten+s] += ma.mElement[z*ma.spalten + i]*mb.mElement[i*mb.spalten + s];
+         }
+         
+      }     
+   }
+   return mM; 
+   
+}
 
 // /*--------------------------------------------------------------------*\
 // * Transponiert eine Matrix (tM)
