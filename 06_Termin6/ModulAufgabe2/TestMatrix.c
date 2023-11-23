@@ -74,7 +74,7 @@ int main(void)
    deleteMatrix(b);
    b = copyMatrix(c);
    printMatrix(c);
-   destroyMatrix(&c);
+   deleteMatrix(c);
    c = multMatrix(a,b);
    printf("\nc[%d,%d]= a * b =", b.spalten, a.zeilen);
    printMatrix(c);

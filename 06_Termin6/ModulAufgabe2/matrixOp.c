@@ -240,23 +240,24 @@ Matrix subMatrix(const Matrix ma, const Matrix mb)
 Matrix multMatrix(const Matrix ma, const Matrix mb)
 {
    Matrix mM;
-   mM = createMatrixZero(1,1);
    int z, s;
-   if (ma.spalten != mb.zeilen)
-      return mM;
+    if (ma.spalten != mb.zeilen) 
+      {
+         mM = createMatrixZero(0, 0);
+         return mM;
+      }
    else if (ma.spalten == mb.zeilen)
    {
-      mM.mElement = (MatTyp*)malloc((ma.zeilen*mb.zeilen)*sizeof(MatTyp));
+      mM = createMatrixZero(ma.zeilen, mb.spalten);
       mM.zeilen = ma.zeilen;
       mM.spalten = mb.spalten;
-      for ( z = 0; z < mM.zeilen +1; z++)
+      for ( z = 0; z < ma.zeilen; z++)
       {
-         for ( s = 0; s < mM.spalten; s++)
+         for ( s = 0; s < mb.spalten; s++)
          {
-            for (int i = 0; i <= mM.spalten; i++)
+            for (int i = 0; i < ma.spalten; i++)
                mM.mElement[z*mM.spalten+s] += ma.mElement[z*ma.spalten + i]*mb.mElement[i*mb.spalten + s];
-         }
-         
+         }    
       }     
    }
    return mM;   
