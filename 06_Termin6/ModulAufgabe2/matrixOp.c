@@ -147,8 +147,8 @@ Bool setEntryAt(Matrix ma, unsigned int xPos, unsigned int yPos, MatTyp value)
    if ((xPos > ma.spalten) ||(yPos > ma.zeilen))
       sE = FALSE;
    else
-      sE = ma.mElement [xPos * ma.spalten + yPos];
       sE = TRUE;
+      ma.mElement [xPos * ma.spalten + yPos] = sE;
    return sE;
 }
 
