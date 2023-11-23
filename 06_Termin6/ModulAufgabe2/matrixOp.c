@@ -162,8 +162,7 @@ void printMatrix(const Matrix ma)
    Matrix pM;
    int z, s, i;
    pM = copyMatrix(ma);
-   printf("matrix =\n");
-
+   printf("\n");
    for (z = 0, i = 0; z < pM.zeilen; z++)
    {
       printf("(");

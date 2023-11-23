@@ -28,12 +28,10 @@
 /*--- main -----------------------------------------------------------*/
 int main(void) 
 {
-   int x = 0, y = 0, b = 0;
+   int x = 0, y = 0;
    srand(time(NULL));
-   double det = 0.0;
-   Matrix test;
-   Matrix test2;
-   Matrix ergebnis;
+   double det = 0.0, element = 0.0;
+   Matrix a, b, c;
    printf("Test verschiedener Funktionen der Bibliothek\nGewuenschte Matrizen-Groesse eingeben\nZeilen, Spalten(>0; z.B. : 3,4)");
    while(scanf("%d,%d", &x, &y) != 2 || x <= 0 || y <= 0) 
    {
@@ -41,7 +39,20 @@ int main(void)
       while(getchar() != '\n')
          getchar();
    }
-   
+   printf("Matrix Elemente eingeben (für den Test nur 1.Elem.,\n weitere werden mir +1 erzeugt)\n Element in [1,1] (z.B.: 4.5):");
+   while(scanf("%f",&element) != 1) 
+   {
+      printf("\nFalsche EIngabe!");
+      while(getchar() != '\n')
+         getchar();
+   }
+   printf("\nTest Create Zero und Rand:\nCreate Matrix Zero: a[%d,%d] =",x,y);
+   a = createMatrixZero(x,y);
+   printMatrix(a);
+   destroyMatrix(&a);
+   a = createMatrixRand(x,y);
+   printMatrix(a);
+
    return 0;
 }
 
