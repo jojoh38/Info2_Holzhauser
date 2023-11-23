@@ -276,11 +276,11 @@ Matrix transposeMatrix(const Matrix ma)
    int z, s;
    tM.spalten = ma.zeilen;
    tM.zeilen = ma.spalten;
-   tM.mElement = (MatTyp*)malloc(sizeof(ma.mElement)*sizeof(MatTyp));
+   tM.mElement = (MatTyp*)malloc((tM.spalten*tM.zeilen)*sizeof(MatTyp));
    for (z = 0; z < tM.zeilen; z++)
    {
       for (s = 0; s < tM.spalten; s++)
-         tM.mElement[z*tM.spalten+s] = ma.mElement[s*tM.spalten + z];
+         tM.mElement[z*tM.spalten+s] = ma.mElement[s*ma.spalten + z];
    }
    return tM;  
 }

@@ -81,6 +81,6 @@ int main(void)
    printf("\nBis hier hat alles schon Funktoniert 3\n\n");
    deleteMatrix(ergebnis);
    ergebnis = transposeMatrix(test); 
-   printMatrix(test);
+   printMatrix(ergebnis);
    return 0;
 }
