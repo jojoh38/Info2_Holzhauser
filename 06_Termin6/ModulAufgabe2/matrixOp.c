@@ -250,18 +250,27 @@ Matrix multMatrix(const Matrix ma, const Matrix mb)
          
       }     
    }
-   return mM; 
-   
+   return mM;   
 }
 
-// /*--------------------------------------------------------------------*\
-// * Transponiert eine Matrix (tM)
-// * Rueckgabe: "ma^T"
-// \*--------------------------------------------------------------------*/
-// Matrix transposeMatrix(const Matrix ma)
-// {
-//    // TODO
-// }
+/*--------------------------------------------------------------------*\
+* Transponiert eine Matrix (tM)
+* Rueckgabe: "ma^T"
+\*--------------------------------------------------------------------*/
+Matrix transposeMatrix(const Matrix ma)
+{
+   Matrix tM;
+   int z, s;
+   tM.spalten = ma.zeilen;
+   tM.zeilen = ma.spalten;
+   tM.mElement = (MatTyp*)malloc(sizeof(ma.mElement)*sizeof(MatTyp));
+   for (z = 0; z < tM.zeilen; z++)
+   {
+      for (s = 0; s < tM.spalten; s++)
+         tM.mElement[z*tM.spalten+s] = ma.mElement[s*tM.spalten + z];
+   }
+   return tM;  
+}
 
 // /*--------------------------------------------------------------------*\
 // * Gibt die Determinante der Matrix ma zurueck (dt)
