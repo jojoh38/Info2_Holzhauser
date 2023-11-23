@@ -272,14 +272,33 @@ Matrix transposeMatrix(const Matrix ma)
    return tM;  
 }
 
-// /*--------------------------------------------------------------------*\
-// * Gibt die Determinante der Matrix ma zurueck (dt)
-// * Rueckgabe im Fehlerfall: ERROR
-// * !!! Optional / Implementation freiwillig !!!
-// * fuer kleine Matrizen reicht ein einfacher Algorithmus
-// * wer moechte kann auch ein effizientes Verfahren implementieren
-// \*--------------------------------------------------------------------*/
-// double determMatrix(const Matrix ma)
-// {
-//    // TODO
-// }
+/*--------------------------------------------------------------------*\
+* Gibt die Determinante der Matrix ma zurueck (dt)
+* Rueckgabe im Fehlerfall: ERROR
+* !!! Optional / Implementation freiwillig !!!
+* fuer kleine Matrizen reicht ein einfacher Algorithmus
+* wer moechte kann auch ein effizientes Verfahren implementieren
+\*--------------------------------------------------------------------*/
+double determMatrix(const Matrix ma)
+{
+   double dt = 0.0;
+   int z, s;
+   if (ma.spalten != ma.zeilen)
+   {
+      dt = 0.0;
+      return ERROR;
+   }
+   else if (ma.spalten == ma.zeilen)
+   {
+      for (z = 0; z < (ma.zeilen-1); z++)
+      {
+         for (s = 0; s < (ma.spalten-1); s++)
+         {
+            dt += (ma.mElement[z*ma.spalten+s] * ma.mElement[(z+1)*ma.spalten+(s+1)]);
+            dt -= (ma.mElement[z*ma.spalten+(s+1)] * ma.mElement[(z+1)*ma.spalten+s]);
+         }
+         
+      }
+   }
+   return dt;  
+}
