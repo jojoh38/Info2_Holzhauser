@@ -69,9 +69,15 @@ int main(void)
    printMatrix(ergebnis);
    ergebnis = multMatrix(test,test2);
    printMatrix(ergebnis);
-   test = createMatrixRand(x,y);
-   test2 = createMatrixRand(x,y);
+   
+   for (int i =0 ; i < test.zeilen*test.spalten; i++) 
+      test.mElement[i] = i;
+   for (int i =0 ; i < test.zeilen*test.spalten; i++) 
+      test2.mElement[i] = i;
+   printMatrix(test);
+   printMatrix(test2);
    ergebnis = multMatrix(test,test2);
    printMatrix(ergebnis);
+   printf("\nBis hier hat alles schon Funktoniert 3\n\n");
    return 0;
 }
