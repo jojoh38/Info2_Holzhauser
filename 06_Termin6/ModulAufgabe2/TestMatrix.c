@@ -40,7 +40,7 @@ int main(void)
          getchar();
    }
    printf("Matrix Elemente eingeben (für den Test nur 1.Elem.,\n weitere werden mir +1 erzeugt)\n Element in [1,1] (z.B.: 4.5):");
-   while(scanf("%f",&element) != 1) 
+   while(scanf("%lf",&element) != 1) 
    {
       printf("\nFalsche EIngabe!");
       while(getchar() != '\n')
@@ -64,8 +64,10 @@ int main(void)
    printMatrix(b);
    c = addMatrix(a,b);
    printf("\nc[%d,%d]= a + b",x,y);
+   printMatrix(c);
    c = subMatrix(a,b);
    printf("\nc[%d,%d]= a - b",x,y);
+   printMatrix(c);
    printf("\nc[%d,%d] = b^T\nb[%d,%d]= c =",x, y, x, y);
    destroyMatrix(&c);
    c = transposeMatrix(b);
@@ -73,8 +75,9 @@ int main(void)
    destroyMatrix(&c);
    c = multMatrix(a,b);
    printf("\nc[%d,%d]= a * b =", a.spalten, b.zeilen);
+   printMatrix(c);
    det = determMatrix(c);
-   printf("\ndet(c) = %.2f");
+   printf("\ndet(c) = %.2lf",det);
    return 0;
 }
 
