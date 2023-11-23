@@ -168,7 +168,7 @@ void printMatrix(const Matrix ma)
       printf("(");
       for (s = 0; s < pM.spalten; s++, i++)
       {
-         printf("%6.4f ", pM.mElement[z * pM.spalten + s]);
+         printf("%6.2f ", pM.mElement[z * pM.spalten + s]);
       }
       printf(")\n");
    }
