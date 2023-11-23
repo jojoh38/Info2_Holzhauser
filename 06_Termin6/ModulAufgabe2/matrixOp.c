@@ -66,7 +66,7 @@ Matrix createMatrixRand(unsigned int spalten, unsigned int zeilen)
    Matrix rM;
    int i, z, s;
    float zufall;
-   srand(time(NULL));
+   //srand(time(NULL));
    rM.spalten = spalten;
    rM.zeilen = zeilen;
    rM.mElement = (MatTyp *)malloc((spalten * zeilen) * sizeof(MatTyp));
