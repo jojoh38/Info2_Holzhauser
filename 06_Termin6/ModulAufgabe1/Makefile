@@ -1,21 +1,10 @@
 # Makefile für das C-Projekt
 
-# Compiler
-CC = gcc
+prog: TestComplex.o complex.o
+			gcc -o testMake TestComplex.o complex.o
 
-# Compiler-Flags
-CFLAGS = -Wall -g
-
-# Ziel: das ausführbare Programm
-TARGET = MakefileTest.exe
-
-# Liste der Quelldateien
-SRCS = TestComplex.c complex.c
-
-# Regel zum Erstellen des ausführbaren Programms
-$(TARGET): $(SRCS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
-
-# Regel zum Löschen des ausführbaren Programms
+TestComplex.o:TestComplex.c
+				gcc -c TestComplex.c
+complex.o:complex.c
+			gcc -c complex.c
 clean:
-	rm -f $(TARGET)
