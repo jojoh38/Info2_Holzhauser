@@ -26,18 +26,18 @@ enum laugen
 int main()
 {
 typedef const char angegeben; //Umbenennung mit Typedef, um Code lesbarer zu machen
-angegeben *saeuren[anzahl_saeuren] = {"Salzsaere", "Schwefelsaeure", "Salpetersaeure", "Kohlensaeure"};
+angegeben *saeuren[anzahl_saeuren] = {"Salzsaere", "Schwefelsaeure", "Salpetersaeure", "Kohlensaeure"}; // Einlesen der Strings
 angegeben *laugen[anzahl_laugen] = {"Natronlauge", "Kalilauge", "Kalkwasser"};
 angegeben *gemischt[][anzahl_saeuren] = {{"Natriumchlorid", "Natriumsulfat", "Natriumnitrat", "Natriumcarbonat"},{"Kaliumclorid", "Kaliumsulfat", "Kaliumnitrat", "Kaliumcarbonat"}, {"Calciumchlorid","Calciumsulfat", "Calciumnitrat", "Calciumcarbonat"}};
-printf("\t   ||");
+printf("\t   ||"); //Ausgabe 
 for (enum saeuren i = Salzsaeure; i < anzahl_saeuren; i++)
-    printf("%16s|", saeuren[i]);
-printf("\n-----------||----------------|----------------|----------------|----------------|\n");
+    printf("%16s|", saeuren[i]); //Ausgabe 1.Zeile
+printf("\n-----------||----------------|----------------|----------------|----------------|\n"); //Ausgabe Untertrennung der Tabelle
 for(enum laugen i = Natronlauge; i < anzahl_laugen; i++)
     {
         printf("%11s||",laugen[i]); 
         for (enum saeuren j = Salzsaeure;j < anzahl_saeuren; j++)
-            printf("%16s|", gemischt[i][j]);
+            printf("%16s|", gemischt[i][j]); //Ausgabe der Tabelle
         printf("\n");
     }
 }
