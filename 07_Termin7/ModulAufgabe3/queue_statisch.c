@@ -3,7 +3,7 @@
 * queue.c - realisiert eine Queue (Warteschlange)
 *
 * Datum:     Autor:
-* 
+*
 *
 \**********************************************************************/
 
@@ -17,7 +17,8 @@
 /*--- Lokale Datentypen (typedef) ------------------------------------*/
 
 /*--- Modulglobale static Variablen ----------------------------------*/
-
+static int liste[100];
+static int anzahl = 0;
 /*--- Prototypen lokaler Funktionen ----------------------------------*/
 
 /*--- Funktionsdefinitionen ------------------------------------------*/
@@ -32,7 +33,14 @@
  *--------------------------------------------------------------------*/
 Bool put(int zahl)
 {
-   // TODO
+   if (anzahl < INT_MAX)
+   {
+      anzahl++;
+      liste[anzahl] = zahl;
+      return TRUE;
+   }
+   else
+      return FALSE;
 }
 
 /*--------------------------------------------------------------------*\
@@ -44,7 +52,19 @@ Bool put(int zahl)
  *--------------------------------------------------------------------*/
 int get(void)
 {
-   // TODO
+   int wert;
+   if (!isEmpty())
+   {
+      wert = liste[1];
+      for (int i = 1; i < anzahl; i++)
+      {
+         liste[i] = liste[i + 1];
+      }
+      anzahl--;
+      return wert;
+   }
+   else
+      return QLEER;
 }
 
 /*--------------------------------------------------------------------*\
@@ -56,5 +76,8 @@ int get(void)
  *--------------------------------------------------------------------*/
 Bool isEmpty(void)
 {
-   // TODO
+   if(anzahl == 0)
+      return TRUE;
+   else
+      return FALSE ;
 }
