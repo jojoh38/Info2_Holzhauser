@@ -39,10 +39,10 @@ int main(void)
       while(getchar() != '\n')
          getchar();
    }
-   printf("Matrix Elemente eingeben (für den Test nur 1.Elem.,\n weitere werden mir +1 erzeugt)\n Element in [1,1] (z.B.: 4.5):");
+   printf("Matrix Elemente eingeben (fuer den Test nur 1.Elem.,\n weitere werden mir +1 erzeugt)\n Element in [1,1] (z.B.: 4.5):");
    while(scanf("%lf",&element) != 1) 
    {
-      printf("\nFalsche EIngabe!");
+      printf("\nFalsche Eingabe!");
       while(getchar() != '\n')
          getchar();
    }
