@@ -12,3 +12,20 @@ typedef struct liste{
     char Nachname[10];
     int note;
 }List;
+
+int main()
+{
+    int i = 0;
+    int durchschnitt = 0;
+    printf("----Eingabe des 1. Schuelers----\n");
+    List Schueler[10];
+    while(scanf("\nName : \t\t %c", Schueler[i].Vorname) != 1)
+        {
+          scanf("\n Vorname: \t\t%c\n Note:\t\t%d\n",Schueler[i].Vorname, &Schueler[i].note);
+            i++;
+            printf("----Eingabe des %d. Schuelers----",i);
+            durchschnitt += Schueler->note;
+        }
+    //Tabellenausgabe
+    printf("")
+}
