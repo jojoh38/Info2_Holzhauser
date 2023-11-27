@@ -15,7 +15,7 @@ int main()
     float durchschnitt = 0;
     int noten[6] = {0};
     printf("----Eingabe des 1. Schuelers----\n");
-    List Schueler[10];
+    List Schueler[25];
     printf("Nachname:");
     while (fgets(Schueler[i].Nachname, 25, stdin) && Schueler[i].Nachname[0] != '\n')
     {
