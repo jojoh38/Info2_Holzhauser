@@ -7,9 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-struct liste{
+typedef struct liste{
     char Vorname[10];
     char Nachname[10];
-    
-
-}
+    int note;
+}List;
