@@ -1,34 +1,31 @@
+/************************************************************************
+ * Aufgabe 30.1.2 Ausgeben einer Datei mit Zeilennumerierung 27.11.2023 *
+ * Johannes Holzhauser und Maximilian Schmidt                           *
+ ************************************************************************/
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
-    // Überprüfen, ob der Dateiname übergeben wurde
-    if (argc != 2) {
-        printf("Verwendung: %s <Dateiname>\n", argv[0]);
-        return 1;  // Rückgabewert 1 für Fehler
+int main(int argc, char *argv[])
+{
+    if (argc != 2) // Test auf korrekte Übergabe
+    {
+        printf("Verwendung: nummerausg.c <Dateiname>\n");
+        return 0;
     }
-
-    // Datei öffnen
-    FILE *datei = fopen(argv[1], "r");
-
-    // Überprüfen, ob die Datei erfolgreich geöffnet wurde
-    if (datei == NULL) {
-        perror("Fehler beim Öffnen der Datei");
-        return 1;  // Rückgabewert 1 für Fehler
+    FILE *datei = fopen(argv[1], "r"); //Datei öffnen
+    if (datei == NULL) 
+    {
+        printf("Fehler beim Öffnen der Datei");
+        return 0;
     }
-
-    // Zeilennummer und Puffer für die Zeile
     int zeilennummer = 1;
-    char zeile[256];  // Annahme: Eine Zeile hat maximal 255 Zeichen
-
-    // Datei zeilenweise ausgeben
-    while (fgets(zeile, sizeof(zeile), datei) != NULL) {
-        // Ausgabe mit Zeilennummer
+    char zeile[256];
+    while (fgets(zeile, sizeof(zeile), datei) != NULL)
+    {
         printf("%d: %s", zeilennummer, zeile);
         zeilennummer++;
     }
 
-    // Datei schließen
     fclose(datei);
 
-    return 0;  // Erfolgreicher Programmabschluss
+    return 0;
 }
