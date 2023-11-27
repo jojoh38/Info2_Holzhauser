@@ -18,14 +18,26 @@ int main()
     int i = 0;
     int durchschnitt = 0;
     printf("----Eingabe des 1. Schuelers----\n");
-    List Schueler[10];
-    while(scanf("\nName : \t\t %c", Schueler[i].Vorname) != 1)
+    List Schueler[100];
+    printf("\nName:\t\t");
+    while(scanf("%c", Schueler[i].Nachname) != '\n')
         {
           scanf("\n Vorname: \t\t%c\n Note:\t\t%d\n",Schueler[i].Vorname, &Schueler[i].note);
             i++;
             printf("----Eingabe des %d. Schuelers----",i);
-            durchschnitt += Schueler->note;
+            durchschnitt += Schueler[i].note;
         }
     //Tabellenausgabe
-    printf("")
+    printf("\t Name \t\t, Vorname \t\t , Note \n--------------------------------------------------------");
+    for( int j = 0; j<=i; j++)
+        {
+            printf("%d . %s \t\t, %s \t\t , %d\n ", j, Schueler[j].Nachname, Schueler[j].Vorname, Schueler[j].note );
+        }
+    if(i > 0)
+    {
+        durchschnitt /= i;
+        printf("Durchschnittsnote: %d\n", durchschnitt);
+    }
+        
+
 }
