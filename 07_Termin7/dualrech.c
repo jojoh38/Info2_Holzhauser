@@ -48,8 +48,10 @@ int main(int argz, char *argp[])
         ergebnis = (ergebnis - 1) - INT_MAX;
         printf("\n......1");
     }
-    else
+    else if(ergebnis > 0)
         printf("\n......");
+    else
+        printf("\n......0");
     while (ergebnis > 0)
     {
         dual[i] = ergebnis % 2;
