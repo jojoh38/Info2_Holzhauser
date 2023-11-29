@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <limits.h>
 
 int eingabeueberpruefung(int stelle, char *argument[]);
 
@@ -40,15 +41,15 @@ int main(int argz, char *argp[])
         ergebnis = zahl1 & zahl2;
     else if (argp[2][0] == '^')
         ergebnis = zahl1 ^ zahl2;
-    printf("%s %c %s =\n",argp[1],argp[2][0],argp[3]);
-    if(ergebnis < 0)
+    printf("%s %c %s =\n", argp[1], argp[2][0], argp[3]);
+    dual[33] = ergebnis;
+    if (ergebnis < 0)
     {
-        ergebnis = -ergebnis;
+        ergebnis = (ergebnis - 1) - INT_MAX;
         printf("\n......1");
     }
     else
         printf("\n......");
-    dual[33] = ergebnis;
     while (ergebnis > 0)
     {
         dual[i] = ergebnis % 2;
@@ -57,10 +58,9 @@ int main(int argz, char *argp[])
     }
     for (int z = i - 1; z >= 0; z--)
         printf("%d", dual[z]);
-    printf("\t(0x%x)",dual[33]);
+    printf("\t(0x%x)", dual[33]);
     return 0;
 }
-
 int eingabeueberpruefung(int stelle, char *argument[])
 {
     int error = 0;
@@ -81,3 +81,8 @@ int eingabeueberpruefung(int stelle, char *argument[])
     }
     return error;
 }
+// weiteres Beispiel:
+//  .\dualrech.exe 110101 - 1110001111
+//  Ergebnis:
+//  1111 1111 1111 1111 1111 1100 1010 0110
+//  F    F    F    F    F    C   A    6
