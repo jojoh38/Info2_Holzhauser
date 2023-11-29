@@ -92,13 +92,14 @@ static const fsm_state_t s_transitions_G[] =
 static const fsm_state_t s_transitions_H[] =
 { /*    input   mask      nxtstate */
   /* TODO   */
-  { 0, 0, A }
+  { 0x000, ~0x003, A },
+  { 0x002, ~0x005, I }
 };
 
 static const fsm_state_t s_transitions_I[] =
 { /*    input   mask      nxtstate */
   /* TODO   */
-  { 0, 0, A }
+  { 0x000, ~0x003, A }
 };
 
 /* Definition der Uebergangstabelle */
