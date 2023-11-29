@@ -1,7 +1,7 @@
 /**********************************************************************\
  * Kurzbeschreibung: automat.c
- * Stellt Funktionen zur Realisierung eines Automaten zur Verfügung,  
- * die über die in der automat.h vorgegebene C-Schnittstelle 
+ * Stellt Funktionen zur Realisierung eines Automaten zur Verfï¿½gung,  
+ * die ï¿½ber die in der automat.h vorgegebene C-Schnittstelle 
  * mit einer grafischen Schnittstelle kommunizieren. 
  *
  * Datum:       Autor:        Grund der Aenderung:
@@ -108,8 +108,13 @@ static const fsm_full_state_t s_state_table[NR_OF_STATES] =
     { s_transitions_A, SIZE_OF(s_transitions_A), A },
     { s_transitions_B, SIZE_OF(s_transitions_B), B },
     { s_transitions_C, SIZE_OF(s_transitions_C), C },
-    { s_transitions_D, SIZE_OF(s_transitions_D), D }
+    { s_transitions_D, SIZE_OF(s_transitions_D), D },
     /* TODO   */
+    { s_transitions_E, SIZE_OF(s_transitions_E), E },
+    { s_transitions_F, SIZE_OF(s_transitions_F), F },
+    { s_transitions_G, SIZE_OF(s_transitions_G), G },
+    { s_transitions_H, SIZE_OF(s_transitions_H), H },
+    { s_transitions_I, SIZE_OF(s_transitions_I), I }
     /* {    } */
 };
 
@@ -120,8 +125,14 @@ static const fsm_action_t s_out_table[NR_OF_STATES] =
     {   false,       false,       false,          0,          "Warten" },    /* state A */
     {   false,       false,       false,          1,          "1 Euro" },    /* state B */
     {   false,       false,       false,          2,          "2 Euro" },    /* state C */
-    {   false,       false,       false,          3,          "3 Euro" }     /* state D */
+    {   false,       false,       false,          3,          "3 Euro" },   /* state D */
     /* TODO   */
+    {   false,        true,       false,          3,          "3 Euro" },    /* state E */
+    {    true,       false,       false,          4,          "4 Euro" },    /* state F */
+    {    true,        true,       false,          4,          "4 Euro" },    /* state G */
+    {   false,       false,        true,          0,          "Kaffee wird zubereitet" },    /* state H */
+    {   false,        true,        true,          0,          "Kaffee wird zubereitet" }    /* state I */
+   
     /* {    } */
 };
 
