@@ -6,6 +6,8 @@
 
 int main(int argc, char *argv[])
 {
+    int zeilennummer = 1;
+    char zeile[256];
     if (argc != 2) // Test auf korrekte Übergabe
     {
         printf("Verwendung: nummerausg.c <Dateiname>\n");
@@ -17,8 +19,6 @@ int main(int argc, char *argv[])
         printf("Fehler beim Öffnen der Datei");
         return 0;
     }
-    int zeilennummer = 1;
-    char zeile[256];
     while (fgets(zeile, sizeof(zeile), datei) != NULL)
     {
         printf("%d: %s", zeilennummer, zeile);
