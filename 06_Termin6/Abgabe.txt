@@ -1,2 +1,0 @@
-gcc -Wall -o MatrixMitLib .\TestMatrix.c .\matrixOp.a
-gcc -Wall -o ComplexMitLib .\TestComplex.c .\complex.a
