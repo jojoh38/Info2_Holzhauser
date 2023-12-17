@@ -1,0 +1,9 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/maximilianschmidt/Documents/Projekte/Info2_Holzhauser/06_Termin6/listmisc_m'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003874, symSize: 0x488 }
+  - { offsetInCU: 0x46, offset: 0x46, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003874, symSize: 0x488 }
+  - { offsetInCU: 0x159, offset: 0x159, size: 0x8, addend: 0x0, symName: _add_name, symObjAddr: 0x488, symBinAddr: 0x100003CFC, symSize: 0x68 }
+  - { offsetInCU: 0x199, offset: 0x199, size: 0x8, addend: 0x0, symName: _vergleichen, symObjAddr: 0x4F0, symBinAddr: 0x100003D64, symSize: 0xF0 }
+...
