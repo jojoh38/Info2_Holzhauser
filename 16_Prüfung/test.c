@@ -91,29 +91,29 @@
 //     strcpy(array, "Hans");
 //     free(array + 5);
 // }
-// int quadsum(int n)
-// {
-//     if (n>1)
-//     {
-//         printf("%d + ",n*n);
-//         return n*n + quadsum(n - 1);
-//     }
-//     else if(n>0)
-//     {
-//         printf("%d = ",n*n);
-//         return n*n + quadsum(n-1);
-//     }
-//     else
-//         return 0;
-// }
-// int main(void)
-// {
-//     int n;
-//     printf("Gib eine Zahl ein: ");
-//     scanf("%d", &n);
-//     printf("%d\n", quadsum(n));
-//     return 0;
-// }
+int quadsum(int n)
+{
+    if(n == 1)
+    {
+        printf("%d = ",n);
+        return 1;
+    }
+    else if (n>1)
+    {
+        printf("%d + ",n*n);
+        return n*n + quadsum(n - 1);
+    }
+    else
+        return 0;
+}
+int main(void)
+{
+    int n;
+    printf("Gib eine Zahl ein: ");
+    scanf("%d", &n);
+    printf("%d\n", quadsum(n));
+    return 0;
+}
 
 // Rekursion
 
@@ -172,12 +172,64 @@
 //     }
 //     printf("Groese %d\n", (int)sizeof(array));
 //     int *ptr, a[200], z[100][50];
-//     fkt1(ptr); 
-//     fkt2(a);   
-//     fkt3(a);   
-//     fkt4(z);   
-//     fkt5(z); 
+//     fkt1(ptr);
+//     fkt2(a);
+//     fkt3(a);
+//     fkt4(z);
+//     fkt5(z);
 //     printf("Groese %d",(int)sizeof(a));
 
 //     return 0;
 // }
+
+// #define MAX_PUFFER_LEN 100
+// char *sortiereWort(const char *wort);
+// // GGf. Deklaration einer Hilfsfunktion hier einfügen:
+// int vergleicheBuchstaben(const void *arg1, const void *arg2);
+// int main()
+// {
+//     const char *referenzWoerter[] = {"jana", "fenster", "eriesee",
+//                                      "banane", "spielzeug", "hansi",
+//                                      "rasen", "strauch"};
+//     unsigned anzahlWoerter = sizeof(referenzWoerter) / sizeof(char *);
+//     char eingabeWort[MAX_PUFFER_LEN] = {"naja"};
+//     char *sortierteEingabe = sortiereWort(eingabeWort);
+//         for (int i = 0; i < anzahlWoerter; i++)
+//         {
+//             char *sortierteRef = sortiereWort(referenzWoerter[i]);
+//             if (strcmp(sortierteEingabe, sortierteRef) == 0)
+//                 printf("%s enthaelt dieselben Buchstaben wie %s.\n",
+//                        eingabeWort, referenzWoerter[i]);
+//             free(sortierteRef);
+//         }
+//         free(sortierteEingabe);
+//     return 0;
+// }
+
+// int vergleicheBuchstaben(const void *arg1, const void *arg2)
+// {
+//     return *(char *)arg1 - *(char *)arg2;
+// }
+// char *sortiereWort(const char *wort)
+// {
+//     int (*comp)(const void*,const void*) = &vergleicheBuchstaben;
+//     char *sortiertesWort = (char *)malloc(strlen(wort) + 1);
+//     strcpy(sortiertesWort, wort);
+//     qsort(sortiertesWort, strlen(sortiertesWort), sizeof(char),
+//           comp);
+//     return sortiertesWort;
+// }
+
+// void tausche(char **string1, char **string2)
+// {
+//  char *tmp = *string1;
+//  *string1 = *string2;
+//  *string2 = tmp;
+// }
+// int main()
+// {
+//  char *string1 = "Eins", *string2 = "Zwei";
+//  tausche(&string1, &string2);
+//  printf("%s, %s\n", string1, string2);
+// }
+
