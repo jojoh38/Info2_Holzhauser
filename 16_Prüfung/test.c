@@ -9,35 +9,35 @@
 #include <math.h>
 #include <limits.h>
 
-int main()
-{
-    // int zahl2;
-    // int *ptr,*ptr2, zahl;
-    // ptr2 = &zahl2;
-    // zahl2 = 12;
-    // ptr = &zahl;
-    // zahl = 15;
-    // printf("%d, %d\n",*ptr2,ptr2);
-    // printf("%d, %d, %d\n",*ptr, zahl, ptr);
-    // *ptr = 25;
-    // printf("%d, %d\n",*ptr, zahl);
-    // *ptr++;
-    // printf("%d, %d, %d\n",*ptr, zahl, ptr);
-    char *arrayp[] = {"Test","Hallo"};
-    char **ptr;
-    ptr = arrayp;
-    //Ausgeben der ersten Zeile
-    printf("\n%s",*ptr);
-    //Ausgeben der zweiten Zeile
-    printf("\n%s",*(ptr+1));
-    //Ausgeben des ersten Elements aus der ersten Zeile
-    printf("\n%c",**ptr);
-    //Ausgeben des 3 Elements aus der ersten Zeile
-    printf("\n%c",*(*ptr+2));
-    //Ausgeben des 4 Elements aus der zweiten Zeile
-    printf("\n%c",*(*(ptr+1)+3));
-    return 0;
-}
+// int main()
+// {
+//     // int zahl2;
+//     // int *ptr,*ptr2, zahl;
+//     // ptr2 = &zahl2;
+//     // zahl2 = 12;
+//     // ptr = &zahl;
+//     // zahl = 15;
+//     // printf("%d, %d\n",*ptr2,ptr2);
+//     // printf("%d, %d, %d\n",*ptr, zahl, ptr);
+//     // *ptr = 25;
+//     // printf("%d, %d\n",*ptr, zahl);
+//     // *ptr++;
+//     // printf("%d, %d, %d\n",*ptr, zahl, ptr);
+//     char *arrayp[] = {"Test","Hallo"};
+//     char **ptr;
+//     ptr = arrayp;
+//     //Ausgeben der ersten Zeile
+//     printf("\n%s",*ptr);
+//     //Ausgeben der zweiten Zeile
+//     printf("\n%s",*(ptr+1));
+//     //Ausgeben des ersten Elements aus der ersten Zeile
+//     printf("\n%c",**ptr);
+//     //Ausgeben des 3 Elements aus der ersten Zeile
+//     printf("\n%c",*(*ptr+2));
+//     //Ausgeben des 4 Elements aus der zweiten Zeile
+//     printf("\n%c",*(*(ptr+1)+3));
+//     return 0;
+// }
 // int main ()
 // {
 //     int *arry[20];
@@ -91,7 +91,7 @@ int main()
 //     strcpy(array, "Hans");
 //     free(array + 5);
 // }
-// int quadsum(int n) 
+// int quadsum(int n)
 // {
 //     if (n>1)
 //     {
@@ -112,5 +112,72 @@ int main()
 //     printf("Gib eine Zahl ein: ");
 //     scanf("%d", &n);
 //     printf("%d\n", quadsum(n));
+//     return 0;
+// }
+
+// Rekursion
+
+// void echo()
+// {
+//     char zeichen = getchar();
+//     printf("%c", zeichen);
+//     if (zeichen != '\n')
+//         echo();
+// }
+// int main()
+// {
+//     printf("Eingabe: ");
+//     echo();
+//     return 0;
+// }
+// int main()
+// {
+//     char zeichen;
+//     zeichen = getchar();
+//     printf("%c", zeichen);
+//     zeichen = getchar();
+//     printf("%c", zeichen);
+//     return 0;
+// }
+
+// void echo()
+// {
+//     char zeichen = getchar();
+//     if (zeichen != '\n')
+//         echo();
+//     printf("%c", zeichen);
+// }
+// int main()
+// {
+//     printf("Eingabe: ");
+//     echo();
+//     return 0;
+// }
+
+// void fkt1(int *ptr) { printf("1: %d\n", (int)sizeof(ptr) + 2); }
+// void fkt2(int arr[]) { printf("2: %d\n", (int)sizeof(arr) + 5); }
+// void fkt3(int arr[200]) { printf("3: %d\n", (int)sizeof(arr) + 3); }
+// void fkt4(int (*mat)[50]) { printf("4: %d\n", (int)sizeof(*mat) + 6); }
+// void fkt5(int mat[100][50]) { printf("5: %d\n", (int)sizeof(mat) + 2); }
+
+// int main()
+// {
+//     int zahlen[] = {4, 23, 213, -1, 23, -123, 3};
+//     printf("Laenge %d\n", (int)(sizeof(zahlen) / (int)sizeof(zahlen[0])));
+//     printf("Groese %d\n", (int)(sizeof(zahlen)));
+//     int array[50];
+//     for (int i = 0; i < 50; i++)
+//     {
+//         array[i] = i;
+//     }
+//     printf("Groese %d\n", (int)sizeof(array));
+//     int *ptr, a[200], z[100][50];
+//     fkt1(ptr); 
+//     fkt2(a);   
+//     fkt3(a);   
+//     fkt4(z);   
+//     fkt5(z); 
+//     printf("Groese %d",(int)sizeof(a));
+
 //     return 0;
 // }
