@@ -238,11 +238,12 @@
 
 int vergleich(const void *a, const void *b)
 {
-    return (int)((*(double*)a) - (*(double*)b));
+    return (int)((*(double*)a)*1000 - (*(double*)b)*1000);
 }
 int main()
 {
     int i;
+    int (*comp)(const void*,const void*) = &vergleich;
     double z[SIZE];
     srand(time(NULL));
     z[0] = 0.2;
@@ -254,7 +255,7 @@ int main()
         printf("\t%0.4lf", z[i]);
     }
     printf("\n\n");
-    qsort(z, SIZE, sizeof(*z), &vergleich);
+    qsort(z, SIZE, sizeof(*z), comp);
     for (int j = 0; j < SIZE; j++)
         printf("%0.4lf\t", z[j]);
 }

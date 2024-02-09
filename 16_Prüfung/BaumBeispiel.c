@@ -12,13 +12,25 @@ typedef struct zahlen NODE; // Alias für struct zahlen
 
 // Funktion zur Berechnung der Summe aller int-Werte im Baum
 int addiere(NODE *root) {
-    if (root == NULL) // Basisfall: Wenn der Knoten NULL ist, ist die Summe 0
-        return 0;
-    
-    // Rekursiv die Summe der linken und rechten Teilbäume berechnen und mit dem aktuellen Knotenwert addieren
-    return root->zahl + addiere(root->links) + addiere(root->rechts);
+    if (root) // Basisfall: Wenn der Knoten NULL ist, ist die Summe 0
+        return root->zahl + addiere(root->links) + addiere(root->rechts);
+    return 0;
 }
-
+int blattaddiere(NODE *root) {
+    int summe = 0;
+    if ((root->links)&&(root->rechts))
+        return blattaddiere((root->links))+blattaddiere((root->rechts));
+    else if ((root->links == NULL) && !(root->rechts == NULL)) 
+        return blattaddiere((root->rechts));
+    else if ((root->rechts == NULL) && !(root->links == NULL))
+        return blattaddiere((root->links));
+    else
+    {
+        summe += root->zahl;
+        return root->zahl;
+    }
+    return summe;
+}
 // Funktion zum Erstellen des Beispielbaums
 NODE *erstelleBeispielbaum() {
     NODE *root = (NODE *)malloc(sizeof(NODE));
@@ -75,6 +87,8 @@ int main() {
     NODE *root = erstelleBeispielbaum();
     int summe = addiere(root);
     printf("Summe aller Werte im Baum: %d\n", summe);
+    int blattsumme = blattaddiere(root);
+    printf("Summe aller Werte der Blatt-Knoten im Baum: %d\n", blattsumme);
     baumFreigeben(root);
     return 0;
 }
