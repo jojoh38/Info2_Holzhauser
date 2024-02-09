@@ -8,6 +8,7 @@
 #include <string.h>
 #include <math.h>
 #include <limits.h>
+#include <time.h>
 
 // int main()
 // {
@@ -91,29 +92,29 @@
 //     strcpy(array, "Hans");
 //     free(array + 5);
 // }
-int quadsum(int n)
-{
-    if(n == 1)
-    {
-        printf("%d = ",n);
-        return 1;
-    }
-    else if (n>1)
-    {
-        printf("%d + ",n*n);
-        return n*n + quadsum(n - 1);
-    }
-    else
-        return 0;
-}
-int main(void)
-{
-    int n;
-    printf("Gib eine Zahl ein: ");
-    scanf("%d", &n);
-    printf("%d\n", quadsum(n));
-    return 0;
-}
+// int quadsum(int n)
+// {
+//     if(n == 1)
+//     {
+//         printf("%d = ",n);
+//         return 1;
+//     }
+//     else if (n>1)
+//     {
+//         printf("%d + ",n*n);
+//         return n*n + quadsum(n - 1);
+//     }
+//     else
+//         return 0;
+// }
+// int main(void)
+// {
+//     int n;
+//     printf("Gib eine Zahl ein: ");
+//     scanf("%d", &n);
+//     printf("%d\n", quadsum(n));
+//     return 0;
+// }
 
 // Rekursion
 
@@ -233,3 +234,27 @@ int main(void)
 //  printf("%s, %s\n", string1, string2);
 // }
 
+#define SIZE 20
+
+int vergleich(const void *a, const void *b)
+{
+    return (int)((*(double*)a) - (*(double*)b));
+}
+int main()
+{
+    int i;
+    double z[SIZE];
+    srand(time(NULL));
+    z[0] = 0.2;
+    z[1] = 0.4;
+    printf("%0.4lf\t%0.4lf",z[0],z[1]);
+    for (i = 2; i < SIZE; i++)
+    {
+        z[i] = (double)rand() / 1000;
+        printf("\t%0.4lf", z[i]);
+    }
+    printf("\n\n");
+    qsort(z, SIZE, sizeof(*z), &vergleich);
+    for (int j = 0; j < SIZE; j++)
+        printf("%0.4lf\t", z[j]);
+}
