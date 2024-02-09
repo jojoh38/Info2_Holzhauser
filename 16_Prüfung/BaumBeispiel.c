@@ -31,6 +31,17 @@ int blattaddiere(NODE *root) {
     }
     return summe;
 }
+int addiereMitTiefe(struct zahlen *wurzel, int tiefe)
+{
+    int summe = 0;
+    if(wurzel != NULL)
+    {
+        summe += addiereMitTiefe(wurzel->links,tiefe+1);
+        summe += wurzel->zahl * tiefe;
+        summe += addiereMitTiefe(wurzel->rechts,tiefe+1);
+    }
+    return summe;
+}
 // Funktion zum Erstellen des Beispielbaums
 NODE *erstelleBeispielbaum() {
     NODE *root = (NODE *)malloc(sizeof(NODE));
@@ -89,6 +100,8 @@ int main() {
     printf("Summe aller Werte im Baum: %d\n", summe);
     int blattsumme = blattaddiere(root);
     printf("Summe aller Werte der Blatt-Knoten im Baum: %d\n", blattsumme);
+    int tiefesumme = addiereMitTiefe(root,1);
+    printf("Summe aller Werte der Knoten im Baum mit Tiefe: %d\n",tiefesumme);
     baumFreigeben(root);
     return 0;
 }
